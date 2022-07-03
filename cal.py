@@ -1,3 +1,13 @@
+last_calculation = []
+
+def history():
+  global last_calculation
+  if last_calculation == []:
+    print("No past calculations to show")
+  else:
+    for i in last_calculation:
+        print(*i)   #for single line
+
 while True:
 
     print("Select operation.")
@@ -9,8 +19,9 @@ while True:
     print("6.Remainder: % ")
     print("7.Terminate: ! ")
     print("8.Reset    : @ ")
+    print("8.History  : ? ")
 
-    choice = input("Enter choice(+,-,*,/,^,%,#,$): ")
+    choice = input("Enter choice(+,-,*,/,^,%,#,$,?): ")
     print(choice)
 
     if choice == ('!'):
@@ -37,27 +48,38 @@ while True:
 
             else:
                 if choice == ('+'):
+                    result=float(a), "+", float(b), "=", float(a) + float(b)
                     print(float(a), "+", float(b), "=", float(a) + float(b))
 
                 elif choice == ('-'):
+                    result=(float(a), "-", float(b), "=", float(a) - float(b))
                     print(float(a), "-", float(b), "=", float(a) - float(b))
 
                 elif choice == ('*'):
+                    result=(float(a), "*", float(b), "=", float(a) * float(b))
                     print(float(a), "*", float(b), "=", float(a) * float(b))
 
                 elif choice == ('/'):
                     if b == '0':
                         print("float division by zero")
+                        result=float(a), "/", float(b), "= None"
                         print(float(a), "/", float(b), "= None")
 
                     else:
+                        result=float(a), "/", float(b), "=", float(a) / float(b)
                         print(float(a), "/", float(b), "=", float(a) / float(b))
 
                 elif choice == ('^'):
+                    result=(float(a), "^", float(b), "=", float(a) ** float(b))
                     print(float(a), "^", float(b), "=", float(a) ** float(b))
 
                 else:
+                    result=(float(a), "%", float(b), "=", float(a) % float(b))
                     print(float(a), "%", float(b), "=", float(a) % float(b))
+                    
+    elif choice=='?':
+        history()
+        continue
 
     else:
         print("Unrecognized operation")
