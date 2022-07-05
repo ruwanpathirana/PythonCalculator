@@ -77,6 +77,8 @@ while True:
                     result=(float(a), "%", float(b), "=", float(a) % float(b))
                     print(float(a), "%", float(b), "=", float(a) % float(b))
                     
+                last_calculation.append(result)
+                    
     elif choice=='?':
         history()
         continue
